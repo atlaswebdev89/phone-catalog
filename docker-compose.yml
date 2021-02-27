@@ -7,7 +7,7 @@ services:
     restart: always
     container_name: beltelPhone
     ports:
-      - 8081:80
+      - 8280:80
     environment:
       WORDPRESS_DB_HOST: db_phone
       WORDPRESS_DB_USER: exampleuser
