@@ -2,31 +2,28 @@ version: '3.1'
 
 services:
 
-  wordpress_cat:
+  wordpress_phone:
     image: wordpress
     restart: always
-    container_name: wp_category
+    container_name: beltelPhone
     ports:
-      - 8080:80
+      - 8081:80
     environment:
-      WORDPRESS_DB_HOST: db_cat
+      WORDPRESS_DB_HOST: db_phone
       WORDPRESS_DB_USER: exampleuser
       WORDPRESS_DB_PASSWORD: examplepass
       WORDPRESS_DB_NAME: exampledb
 
     volumes:
-      - wordpress-cat:/var/www/html
-      - ./kurs/:/var/www/html/wp-content/plugins/atl-kurs/
-      - ./subPage/:/var/www/html/wp-content/plugins/atl-subPage/
-      - ./atl-wp-category-posts/:/var/www/html/wp-content/plugins/atl-wp-category-posts/
+      - wordpress-phone:/var/www/html
       - ./child-themes/:/var/www/html/wp-content/themes/child-themes/
     depends_on:
-        - db_cat
+        - db_phone
     networks:
-      - project_cat
-  db_cat:
+      - project_phone
+  db_phone:
     image: mysql:5.7
-    container_name: mysql_category
+    container_name: mysql_phone
     restart: always
     environment:
       MYSQL_DATABASE: exampledb
@@ -34,14 +31,14 @@ services:
       MYSQL_PASSWORD: examplepass
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
-      - db-cat:/var/lib/mysql
+      - db-phone:/var/lib/mysql
     networks:
-      - project_cat
+      - project_phone
 
 networks:
-  project_cat:
+  project_phone:
     driver: bridge
 
 volumes:
-  wordpress-cat:
-  db-cat:
+  wordpress-phone:
+  db-phone:
