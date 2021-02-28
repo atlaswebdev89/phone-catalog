@@ -20,4 +20,17 @@
 	opacity: 0.6;
 	z-index:15;
 }
-
+.list-phone li {
+    list-style: none;
+}
+.lp-staticslider::before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: rgb(0 0 0 / 49%);
+}

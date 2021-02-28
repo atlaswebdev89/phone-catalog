@@ -1,7 +1,6 @@
 <?php 
-
-
-require_once( get_stylesheet_directory(). "/includes/landing-page.php" );	// Landing Page outputs
+require_once( get_stylesheet_directory(). "/includes/front-page.php" );	// Landing Page outputs
+require_once( get_stylesheet_directory(). "/includes/categoryList.php" );// Для страниц рубрик вывод категорий и записей
 
 //Подключение стилей родетельской темы FLUID
 add_action( 'wp_enqueue_scripts', 'true_enqueue_styles' );
@@ -13,7 +12,7 @@ function true_enqueue_styles() {
 //Проверка авторизации для посещения любой страницы сайта
 add_action('get_header', 'onlyregistered_function');
 function onlyregistered_function() {
- 	if(!is_user_logged_in() && !is_404()) {
+ 	if(!is_user_logged_in()) {
   		auth_redirect();
  	}
 }
@@ -21,11 +20,11 @@ function onlyregistered_function() {
 //Задаем миниатюру по умолчанию 
 add_action('save_post', 'my_template_thumbnail');
 function my_template_thumbnail($post_id) {
-$id_thumbnail_default = '89';
+$id_thumbnail_default = '25';
 $post_thumbnail = get_post_meta($post_id, $key = '_thumbnail_id', $single = true);
   if ( !wp_is_post_revision($post_id) ) :
     if ( empty($post_thumbnail) ) {
-      update_post_meta($post_id, $meta_key = '_thumbnail_id', $meta_value = '89');
+      update_post_meta($post_id, $meta_key = '_thumbnail_id', $meta_value = $id_thumbnail_default);
     }
   endif;
 }
