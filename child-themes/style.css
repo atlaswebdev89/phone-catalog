@@ -34,3 +34,31 @@
     width: 100%;
     background: rgb(0 0 0 / 49%);
 }
+
+table.delivery {width: 100% !important; border: 0px; border-collapse: collapse;}
+table.delivery thead {font-weight: bold;}
+table.delivery td {padding: 0.6rem 1rem; border-bottom: 1px solid #e8e9eb;}
+
+@media screen and (max-width: 800px) {
+  table.delivery thead {
+    display: none;
+  }
+  table.delivery tr {
+    display: block;
+    border-bottom: 2px solid #e8e9eb;
+    padding-bottom: 40px;
+    height: auto !important;
+   
+  }
+  table.delivery td {
+    display: block;
+    text-align: right;
+    min-height: 50px;
+    width: 100% !important;
+  }
+  table.delivery td:before {
+    content: attr(aria-label);
+    float: left;
+    font-weight: bold;
+  }
+}
