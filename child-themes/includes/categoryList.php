@@ -6,15 +6,34 @@ if($parent_id) {
 }
     
 echo '<h2>'.$current_category->name.'</h2>';
-        
+$myposts = get_posts( array(
+                                            'numberposts' => -1,
+                                            'category_name' =>$current_category->slug,
+                                        ) );   
+
+
+
+
+
+
 # получаем дочерние рубрики
 $sub_cats = get_categories( array(
 	'parent' => $parent_id,
 	'hide_empty' => 0
 ) );
 if( $sub_cats ){
+     if($myposts) {
+            foreach($myposts as $post){
+                $categories = get_the_category($post->ID);
+                    foreach ($categories as $key => $value) {
+                            if($value->term_id == $current_category->term_id) {
+                                    echo '<li><i class="icon-tags"></i>  <a href="'. get_the_permalink($post->ID) .'">'. get_the_title($post->ID) .'</a></li>';
+                                }
+                       }
+                   }
+            }
+            
 	foreach( $sub_cats as $cat ){
-
 		// Данные в объекте $cat
 
 		// $cat->term_id
