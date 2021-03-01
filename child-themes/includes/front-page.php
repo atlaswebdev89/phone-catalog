@@ -18,7 +18,7 @@ function get_category_by_parentID($parentID=0, $numberCounts  =0) {
                         'hide_empty' => false, //Показывать категории не имеющие записей
                         'parent' => $ID, // id родительской категории
                         'number' => $numberCounts,
-                        'order' => ASC,
+                        'order' => 'ASC',
                         'orderby'=> 'slug',
                     ];
             $category = get_terms($param);
@@ -124,12 +124,12 @@ function fluida_lpbox_output( $data ) {
                             <div class="bg-overlay"></div>
 					<div class="lp-box-image lpbox-rnd<?php echo $randomness[$colno%8]; ?>">
 						<?php if( ! empty( $image ) ) { ?><img alt="<?php echo esc_attr( $title ); ?>" src="<?php echo esc_url( $image ); ?>" /> <?php } ?>
-						<a class="lp-box-link" <?php if ( !empty( $link ) ) { ?> href="<?php echo esc_url( $link ); ?>" aria-label="<?php echo esc_attr( $title ); ?>" <?php echo esc_attr( $target ); ?><?php } ?>> <i class="blicon-plus2"></i> </a>
+						<a class="lp-box-link" <?php if ( !empty( $link ) ) { ?> href="<?php echo esc_url( $link ); ?>" aria-label="<?php echo esc_attr( $title ); ?>" <?php } ?>> <i class="blicon-plus2"></i> </a>
 						<div class="lp-box-overlay"></div>
 					</div>
 					<div class="lp-box-content">
 						<?php if ( ! empty( $title ) ) { ?><h5 class="lp-box-title">
-							<?php if ( !empty( $readmore ) && !empty( $link ) ) { ?> <a href="<?php echo esc_url( $link ); ?>" <?php echo esc_attr( $target ); ?>><?php } ?>
+							<?php if ( !empty( $readmore ) && !empty( $link ) ) { ?> <a href="<?php echo esc_url( $link ); ?>" ><?php } ?>
 								<?php echo do_shortcode( $title ); ?>
 							<?php if ( !empty( $readmore ) && !empty( $link ) ) { ?> </a> <?php } ?>
 						</h5><?php } ?>
@@ -138,7 +138,7 @@ function fluida_lpbox_output( $data ) {
 								<div class="lp-box-text-inside"> <?php echo do_shortcode( $content ); ?> </div>
 							<?php } ?>
 							<?php if( ! empty( $readmore ) ) { ?>
-								<a class="lp-box-readmore" href="<?php if( ! empty( $link ) ) { echo esc_url( $link ); } ?>" <?php echo esc_attr( $target ); ?>> <?php echo do_shortcode( wp_kses_post( $readmore ) ); ?> <em class="screen-reader-text">"<?php echo esc_attr( $title ) ?>"</em> <i class="icon-angle-right"></i></a>
+								<a class="lp-box-readmore" href="<?php if( ! empty( $link ) ) { echo esc_url( $link ); } ?>" > <?php echo do_shortcode( wp_kses_post( $readmore ) ); ?> <em class="screen-reader-text">"<?php echo esc_attr( $title ) ?>"</em> <i class="icon-angle-right"></i></a>
 							<?php } ?>
 						</div>
 					</div>
