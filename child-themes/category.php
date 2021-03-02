@@ -9,7 +9,7 @@ get_header(); ?>
                                                 <?php if ( false == get_post_format() ) { cryout_featured_hook(); } ?>
                                                 <div class="article-inner list-phone">
                                                         <header class="entry-header">
-                                                                <?php get_list_phone_in_category($category->term_id); ?>
+                                                                <?php get_list_phone_in_category($category); ?>
                                                         </header><!-- .entry-header -->
                                                 </div>
                                         </article>
