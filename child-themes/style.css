@@ -51,7 +51,7 @@ table td {padding: 0.6rem 1rem; border-bottom: 1px solid #e8e9eb;}
   }
   table td {
     display: block;
-    text-align: right;
+    text-align: right !important;
     min-height: 50px;
     height: auto !important;
     width: 100% !important;
