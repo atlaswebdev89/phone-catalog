@@ -34,34 +34,35 @@
     width: 100%;
     background: rgb(0 0 0 / 49%);
 } 
-table{width: 100% !important; border: 0px; border-collapse: collapse;}
-table thead {font-weight: bold;}
-table td {padding: 0.6rem 1rem; border-bottom: 1px solid #e8e9eb;}
+.article-inner table{width: 100% !important; border: 0px; border-collapse: collapse;}
+.article-inner table thead {font-weight: bold;}
+.article-inner table td {padding: 0.6rem 1rem; border-bottom: 1px solid #e8e9eb;}
 
 @media screen and (max-width: 800px) {
-  table thead {
+  .article-inner table thead {
     display: none;
   }
-  table tr {
+  .article-inner table tr {
     display: block;
     border-bottom: 2px solid #e8e9eb;
     padding-bottom: 40px;
     height: auto !important;
    
   }
-  table td {
+  .article-inner table td {
     display: block;
     text-align: right !important;
     min-height: 50px;
     height: auto !important;
     width: 100% !important;
   }
-  table td a {
+  .article-inner table td a {
 	white-space: nowrap;
   }
-  table td:before {
+  .article-inner table td:before {
     content: attr(aria-label);
     float: left;
     font-weight: bold;
   }
 }
+
